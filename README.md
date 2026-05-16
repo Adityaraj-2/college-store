@@ -1,2 +1,2 @@
 # CollegeStore
-https://aditya-2.github.io/College store/
+https://aditya-2.github.io/Collegestore/
