@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollegeStore - Buy & Sell for Students</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobo.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="store-logo">
+            <img src="./images/logo.png" alt="College Store Logo">
+            <div class="store-name">College Store</div>
+        </div>
+        <div class="mobile-menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <nav class="nav" id="nav-menu">
+            <ul>
+                <li><a href="buy.html">Buy</a></li>
+                <li><a href="sell.html">Sell</a></li>
+               <!-- <li><a href="chat.html">Chats</a></li> -->
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="login.html" id="login-logout-link">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url(https://www.niu.edu/images/randomizer/davis-hall-patio.jpg);">
+        <h2>Buy, Sell & Donate Student Materials</h2>
+        <p>Find the best deals on books, gadgets, and more. Support your campus community.</p>
+       <!-- <input type="text" placeholder="Search for books, gadgets, etc..." id="search-bar">
+        <button onclick="searchItems()">Search</button>-->
+    </section>
+
+    <!-- Featured Listings -->
+    <section class="featured">
+        <h2>Popular Listings</h2>
+        <div class="items">
+            <div class="item">
+                <img src="Engg.Math.jpeg" alt="Book">
+                <p>Engineering Mathematics - ₹350</p>
+                <a href="buy.html" class="btn">View Now</a>
+            </div>
+            <div class="item">
+                <img src="DellLaptop.jpeg" alt="Laptop">
+                <p>Dell Laptop - ₹25,000</p>
+                <a href="buy.html" class="btn">View Now</a>
+            </div>
+            <div class="item">
+                <img src="./images/991ms.jpeg" alt="Calculator">
+                <p>Scientific Calculator - ₹500</p>
+                <a href="buy.html" class="btn">View Now</a>
+            </div>
+            <div class="item">
+                <img src="apron.jpg" alt="Apron">
+                <p>Apron - ₹40</p>
+                <a href="buy.html" class="btn">View Now</a>
+            </div>
+            <div class="item">
+                <img src="edKit.jpg" alt="Ed Kit">
+                <p>T-Scale - ₹35</p>
+                <a href="buy.html" class="btn">View Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call-to-Action Sections -->
+    <section class="cta">
+        <div class="box buy">
+            <h3>Looking to Buy?</h3>
+            <p>Find the best deals from students near you.</p>
+            <!--<button class="buy-btn"><a href="buy-section.html">Browse Listings</a></button>
+            <button>Browse Listings</button>-->
+            <a href="buy.html" class="btn">Browse Listings</a>
+        </div>
+        <div class="box sell">
+            <h3>Want to Sell?</h3>
+            <p>Post your used books, gadgets, and accessories easily.</p>
+            <a href="sell.html" class="btn">Sell Now</a>
+        </div>
+        <div class="box donate">
+            <h3>Donate & Help</h3>
+            <p>Support students by donating your unused materials.</p>
+            <a href="donate.html" class="btn">Donate Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 CollegeStore | Made for Students</p>
+    </footer>
+    <script src="cart.js"></script>
+    <script>
+        // Toggle mobile menu display
+        function toggleMenu() {
+            var menu = document.getElementById('nav-menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+
+        // Check if user is logged in and update login/logout button
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginLogoutLink = document.getElementById('login-logout-link');
+            const currentUser = localStorage.getItem('currentUser');
+            
+            if (currentUser) {
+                // User is logged in, change link to logout
+                loginLogoutLink.textContent = 'Logout';
+                loginLogoutLink.href = '#';
+                loginLogoutLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Clear user data from localStorage
+                    localStorage.removeItem('currentUser');
+                    // Redirect to home page
+                    window.location.href = 'index.html';
+                });
+            } else {
+                // User is not logged in, ensure link points to login page
+                loginLogoutLink.textContent = 'Login';
+                loginLogoutLink.href = 'login.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Store - Buy Products</title>
+    <link rel="stylesheet" href="buy.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="logo">College Store</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#">Shop</a>
+            <a href="sell.html">Sell</a>
+            <a href="donate.html">Donate</a>
+            <a href="checkout.html" class="cart-container" id="cart-icon" style="text-decoration: none; color: inherit;">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-badge" id="cart-badge" style="color: beige;">0</span>
+            </a>            
+        </div>
+        <div class="search-container">
+            <input type="text" id="product-search" placeholder="Search products..." class="search-input">
+            <button class="search-button"><i class="fas fa-search"></i>Search</button>
+        </div>
+    </div>
+
+    <!-- Header 
+    <header>
+        <div class="hero" style="background-image: url(https://thumbs.dreamstime.com/b/shopping-college-essentials-graduation-cap-store-aisle-shopping-cart-adorned-graduation-cap-sits-344263590.jpg);
+        background-size: cover;">
+            <h1>Shop Affordable Educational Materials</h1>
+            <p>Browse our collection of affordable books, stationery, electronics, and lab equipment. All items are donated by fellow students or available at discounted prices.</p>
+            <a href="#products" class="cta-button">Start Shopping</a>
+        </div>
+    </header>
+
+     Category Filter -->
+    <section class="category-filter">
+        <div class="filter-container">
+            <h3 class="filter-title">Filter by Category:</h3>
+            <div class="filter-buttons">
+                <button class="filter-button active" data-category="all">All</button>
+                <button class="filter-button" data-category="books">Books</button>
+                <button class="filter-button" data-category="stationery">Stationery</button>
+                <button class="filter-button" data-category="electronics">Electronics</button>
+                <button class="filter-button" data-category="lab">Lab Equipment</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search results info -->
+    <div id="search-results-info" class="search-results-info" style="display: none; text-align: center; margin: 10px 0;">
+        <p>Showing results for: <span id="search-term"></span></p>
+        <button id="clear-search" class="btn">Clear Search</button>
+    </div>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <h2 class="section-title">Available Products</h2>
+        <div class="products-container">
+            <!-- Books -->
+            <div class="product-card" data-category="books">
+                <div class="product-img" style="background-image: url(./images/calculus.jpg)">
+                    <span class="product-category">Books</span>
+                </div>
+                <div class="product-content">
+                    <h3>Calculus: Early Transcendentals (Free)</h3>
+                    <p>8th Edition, James Stewart. Excellent condition with minimal highlighting.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹00.00</span>
+                        <div class="cart-button-container">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="books">
+                <div class="product-img" style="background-image: url(./images/algo.jpeg)">
+                    <span class="product-category">Books</span>
+                </div>
+                <div class="product-content">
+                    <h3>Introduction to Algorithms</h3>
+                    <p>CLRS, 3rd Edition. Like new condition, never used.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹450.00</span>
+                        <div class="cart-button-container">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stationery -->
+            <div class="product-card" data-category="stationery">
+                <div class="product-img" style="background-image: url(./images/991ms.jpeg)">
+                    <span class="product-category">Stationery</span>
+                </div>
+                <div class="product-content">
+                    <h3>Scientific Calculator</h3>
+                    <p>CASIO FX-991MS Scientific Scientific Calculator  (12 Digit), gently used with all functions working.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹500.00</span>
+                        <div class="cart-button-container">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="stationery">
+                <div class="product-img" style="background-image: url(./images/bundle.jpg)">
+                    <span class="product-category">Stationery</span>
+                </div>
+                <div class="product-content">
+                    <h3>Classmate Notebook Bundle (Donated)</h3>
+                    <p>Set of 4 college-ruled notebooks with hardcovers. Brand new.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹0.00</span>
+                        <div class="cart-button-container">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Electronics -->
+            <div class="product-card" data-category="electronics">
+                <div class="product-img" style="background-image: url('DellLaptop.jpeg')">
+                    <span class="product-category">Electronics</span>
+                </div>
+                <div class="product-content">
+                    <h3>Dell Laptop</h3>
+                    <p>Dell Inspiron 15, 8GB RAM, 256GB SSD, i5 processor. Recently refurbished.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹25,000.00</span>
+                        <div class="cart-button-container">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="electronics">
+                <div class="product-img" style="background-image: url('./images/boat370.jpeg')">
+                    <span class="product-category">Electronics</span>
+                </div>
+                <div class="product-content">
+                    <h3>Wireless Headphones</h3>
+                    <p>Boat370 Noise Cancelling Headphones. Lightly used.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹700.00</span>
+                        <div class="cart-button-container">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab Equipment -->
+            <div class="product-card" data-category="lab">
+                <div class="product-img" style="background-image: url('apron.jpg')">
+                    <span class="product-category">Lab Equipment</span>
+                </div>
+                <div class="product-content">
+                    <h3>Lab Coat</h3>
+                    <p>Mechanical Lab coat, size M. Used for one semester only.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹40.00</span>
+                        <div class="cart-button-container">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="lab">
+                <div class="product-img" style="background-image: url(./images/google.webp)">
+                    <span class="product-category">Lab Equipment</span>
+                </div>
+                <div class="product-content">
+                    <h3>Chemistry Goggles (Donated)</h3>
+                    <p>Safety goggles for chemistry lab. Used for few times.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹0.00</span>
+                        <div class="cart-button-container">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card" data-category="lab">
+                <div class="product-img" style="background-image: url(edKit.jpg)">
+                    <span class="product-category">Lab Equipment</span>
+                </div>
+                <div class="product-content">
+                    <h3>T-Scale</h3>
+                    <p>T-Scale for ED lab. Used for one semester.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹35.00</span>
+                        <div class="cart-button-container">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card" data-category="books">
+                <div class="product-img" style="background-image: url(Engg.Math.jpeg)">
+                    <span class="product-category">Books</span>
+                </div>
+                <div class="product-content">
+                    <h3>Engineering Mathematics</h3>
+                    <p>8th Edition (1 january 2019). Excellent condition with minimal highlighting.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹350.00</span>
+                        <div class="cart-button-container">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card" data-category="stationery">
+                <div class="product-img" style="background-image: url(./images/lamp.jpeg)">
+                    <span class="product-category">Stationery</span>
+                </div>
+                <div class="product-content">
+                    <h3>Study Lamp</h3>
+                    <p>Lamp for late night study sessions. Good condition.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹430.00</span>
+                        <div class="cart-button-container">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card" data-category="stationery">
+                <div class="product-img" style="background-image: url(./images/bag.jpeg)">
+                    <span class="product-category">Stationery</span>
+                </div>
+                <div class="product-content">
+                    <h3>College Backpack</h3>
+                    <p>Excellent condition bag. Used for couple of times for travelling purpose.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹800.00</span>
+                        <div class="cart-button-container">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card" data-category="books">
+                <div class="product-img" style="background-image: url(./images/dsaC.jpeg)">
+                    <span class="product-category">Books</span>
+                </div>
+                <div class="product-content">
+                    <h3>Data Structures in C</h3>
+                    <p>2nd Edition , Reema Thareja. Used for a year . Good condition.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹450.00</span>
+                        <div class="cart-button-container">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card" data-category="lab">
+                <div class="product-img" style="background-image: url(./images/EdKit.jpg)">
+                    <span class="product-category">Lab Equipment</span>
+                </div>
+                <div class="product-content">
+                    <h3>ED Kit</h3>
+                    <p>ED Kit for Engineering Drawing lab. Used for one semester.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹65.00</span>
+                        <div class="cart-button-container">
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Request Form -->
+    <section class="request-section" id="request-form">
+        <h2 class="section-title">Can't Find What You Need?</h2>
+        <div class="form-container">
+            <p style="margin-bottom: 1.5rem; text-align: center;">Submit a request for specific educational materials, and we'll notify you when they become available.</p>
+            <form>
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your name" required>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your email" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="productName">Product Name</label>
+                    <input type="text" id="productName" class="form-control" placeholder="Specific title or model number if known" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Product Category</label>
+                    <select id="category" class="form-control" required>
+                        <option value="">Select a category</option>
+                        <option value="books">Books & Textbooks</option>
+                        <option value="stationery">Stationery</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="lab">Lab Equipment</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Detailed Description</label>
+                    <textarea id="description" class="form-control" rows="4" placeholder="Please provide specific details about the item you're looking for..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="urgency">How soon do you need this?</label>
+                    <select id="urgency" class="form-control">
+                        <option value="not-urgent">Not urgent - Within the next few months</option>
+                        <option value="soon">Soon - Within the next few weeks</option>
+                        <option value="urgent">Urgent - As soon as possible</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget Range ($)</label>
+                    <input type="text" id="budget" class="form-control" placeholder="Maximum amount you're willing to spend">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="cta-button" style="border: none; cursor: pointer; width: 100%;">Submit Request</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo" style="margin-bottom: 1rem;">College Store</div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="#">Shop</a>
+            <a href="sell.html">Sell</a>
+            <a href="donate.html">Donate</a>
+        </div>
+        <p class="copyright">© 2025 College Store. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for filtering -->
+    <script src="cart.js">
+
+    </script>
+</body>
+</html>
